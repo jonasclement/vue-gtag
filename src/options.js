@@ -26,6 +26,7 @@ export const getDefaultParams = () => ({
   config: {
     id: null,
     params: {
+      custom_client_id: "",
       send_page_view: false,
     },
   },
