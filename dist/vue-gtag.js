@@ -471,10 +471,7 @@ var addConfiguration = (function () {
     });
   }
 
-  console.log("check custom client_id");
-
   if (config.customClientId) {
-    console.log("set client_id");
     query("set", {
       client_id: config.customClientId
     });
