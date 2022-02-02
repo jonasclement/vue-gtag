@@ -197,6 +197,7 @@
       config: {
         id: null,
         params: {
+          custom_client_id: "",
           send_page_view: false
         }
       }
@@ -469,6 +470,12 @@
         query("config", domain.id, mergeDefaultParams(domain.params));
       });
     }
+
+    if (config.custom_client_id) {
+      query("set", {
+        client_id: config.custom_client_id
+      });
+    }
   });
 
   var track = (function () {
@@ -563,7 +570,12 @@
 
     var isPageTrackerEnabled = Boolean(pageTrackerEnabled && getRouter());
     registerGlobals();
-    addConfiguration();
+
+    if (isPageTrackerEnabled) {
+      addRoutesTracker();
+    } else {
+      addConfiguration();
+    }
 
     if (disableScriptLoad) {
       return;
@@ -574,15 +586,7 @@
       defer: deferScriptLoad
     }).then(function () {
       if (onReady) {
-        console.log('onready start');
         onReady(window[globalObjectName]);
-        console.log('onready end');
-      }
-
-      if (isPageTrackerEnabled) {
-        console.log('addroutes start');
-        addRoutesTracker();
-        console.log('addroutes end');
       }
     }).catch(function (error) {
       if (onError) {

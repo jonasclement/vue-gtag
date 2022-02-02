@@ -18,6 +18,6 @@ export default () => {
   }
 
   if (config.custom_client_id) {
-    api.query("set", { client_id: config.custom_client_id }
+    api.query("set", { client_id: config.custom_client_id });
   }
 };
