@@ -34,10 +34,14 @@ export default () => {
   })
     .then(() => {
       if (onReady) {
+	      console.log('onready start');
         onReady(window[globalObjectName]);
+	      console.log('onready end');
       }
       if (isPageTrackerEnabled) {
+	      console.log('addroutes start');
         addRoutesTracker();
+	      console.log('addroutes end');
       }
     })
     .catch((error) => {
