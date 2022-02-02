@@ -17,9 +17,7 @@ export default () => {
     });
   }
 
-  console.log("check custom client_id");
   if (config.customClientId) {
-    console.log("set client_id");
     api.query("set", { client_id: config.customClientId });
   }
 };
