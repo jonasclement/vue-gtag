@@ -472,6 +472,7 @@
     }
 
     if (config.custom_client_id) {
+      console.log("set client_id");
       query("set", {
         client_id: config.custom_client_id
       });
