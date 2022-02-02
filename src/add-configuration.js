@@ -18,8 +18,8 @@ export default () => {
   }
 
   console.log("check custom client_id");
-  if (config.custom_client_id) {
+  if (config.customClientId) {
     console.log("set client_id");
-    api.query("set", { client_id: config.custom_client_id });
+    api.query("set", { client_id: config.customClientId });
   }
 };

@@ -197,9 +197,9 @@
       config: {
         id: null,
         params: {
-          custom_client_id: "",
           send_page_view: false
-        }
+        },
+        customClientId: ""
       }
     };
   };
@@ -473,10 +473,10 @@
 
     console.log("check custom client_id");
 
-    if (config.custom_client_id) {
+    if (config.customClientId) {
       console.log("set client_id");
       query("set", {
-        client_id: config.custom_client_id
+        client_id: config.customClientId
       });
     }
   });
