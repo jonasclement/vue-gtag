@@ -22,12 +22,7 @@ export default () => {
   const isPageTrackerEnabled = Boolean(pageTrackerEnabled && getRouter());
 
   registerGlobals();
-
-  if (isPageTrackerEnabled) {
-    addRoutesTracker();
-  } else {
-    addConfiguration();
-  }
+  addConfiguration();
 
   if (disableScriptLoad) {
     return;
@@ -40,6 +35,9 @@ export default () => {
     .then(() => {
       if (onReady) {
         onReady(window[globalObjectName]);
+      }
+      if (isPageTrackerEnabled) {
+        addRoutesTracker();
       }
     })
     .catch((error) => {
