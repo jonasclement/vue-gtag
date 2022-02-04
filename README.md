@@ -1,3 +1,6 @@
+🔥 **HEADS UP!** This is version 2 branch and it requires Vue 3. If you are looking for a Vue 2 compatible version, use [version 1](https://github.com/MatteoGabriele/vue-gtag/tree/1.0). You can find both documentations [here](https://matteo-gabriele.gitbook.io/vue-gtag/) 
+
+
 <p align="center">
   <img width="250" src="https://i.imgur.com/AlAf04U.png">
   <br>
@@ -27,18 +30,14 @@ Global Site Tag plugin for Vue
 
 The global site tag (gtag.js) is a JavaScript tagging framework and API that allows you to send event data to Google Analytics, Google Ads, and Google Marketing Platform. For general gtag.js [documentation](https://developers.google.com/analytics/devguides/collection/gtagjs), read the gtag.js developer guide.
 
-## Vue 3 update
-Released Vue 3 compatible version on this new repo https://github.com/MatteoGabriele/vue-gtag-next and you can install the package under `vue-gtag-next`. I will release it under the `vue-gtag` package once Vue will officially release version 3 as latest version.
-If you have any feedback, please consider opening an issue on https://github.com/MatteoGabriele/vue-gtag-next/issues :pray:
-
 ## Requirements
 
-Vue ^2.0.0
+Vue ^3.0.0
 
 ## Install
 
 ```bash
-npm install vue-gtag
+npm install vue-gtag@next
 ```
 
 ## Documentation
