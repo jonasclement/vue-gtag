@@ -16,4 +16,8 @@ export default () => {
       api.query("config", domain.id, mergeDefaultParams(domain.params));
     });
   }
+
+  if (config.customClientId) {
+    api.query("set", { client_id: config.custom_client_id });
+  }
 };
