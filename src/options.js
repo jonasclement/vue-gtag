@@ -29,6 +29,7 @@ export const getDefaultParams = () => ({
       send_page_view: false,
     },
   },
+  customClientId: ""
 });
 
 let params = {};
