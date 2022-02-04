@@ -1,12 +1,23 @@
-import { createLocalVue } from "@vue/test-utils";
+import { createApp } from "vue";
 import VueGtag from "@/index";
 import query from "@/api/query";
 
 describe("query", () => {
-  test("passes argumemets to the gtag instance", () => {
-    const localVue = createLocalVue();
+  let _window = window;
 
-    localVue.use(VueGtag);
+  beforeEach(() => {
+    global.window = _window;
+    delete global.window.gtag;
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  test("passes argumemets to the gtag instance", () => {
+    const app = createApp();
+
+    app.use(VueGtag);
 
     jest.spyOn(window, "gtag").mockReturnValue();
 
@@ -16,9 +27,9 @@ describe("query", () => {
   });
 
   test("passes argumemets to the custom named instance", () => {
-    const localVue = createLocalVue();
+    const app = createApp();
 
-    localVue.use(VueGtag, {
+    app.use(VueGtag, {
       globalObjectName: "foo",
     });
 
@@ -27,5 +38,20 @@ describe("query", () => {
     query("foo", "bar");
 
     expect(window.foo).toHaveBeenCalledWith("foo", "bar");
+  });
+
+  test("use query with gtag disabled", () => {
+    const app = createApp();
+
+    app.use(VueGtag, {
+      bootstrap: false,
+      config: {
+        id: 1,
+      },
+    });
+
+    expect(() => {
+      query("foo");
+    }).not.toThrow();
   });
 });
